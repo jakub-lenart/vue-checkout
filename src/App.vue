@@ -2,26 +2,30 @@
   #app
     main-header
     .container.clearfix
-      h2.page-title {{ msg }}
+      h2.page-title {{ title }}
       .col.col-left
         delivery-form
+      .col.col-right
+        order-summary
 
 </template>
 
 <script>
   import MainHeader from './components/Header.vue'
   import DeliveryForm from './components/DeliveryForm.vue'
+  import OrderSummary from './components/OrderSummary.vue'
 
   export default {
     name: 'app',
     data () {
       return {
-        msg: 'Checkout'
+        title: 'Checkout'
       }
     },
     components: {
       MainHeader,
-      DeliveryForm
+      DeliveryForm,
+      OrderSummary
     }
   }
 </script>
