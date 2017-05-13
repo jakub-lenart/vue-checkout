@@ -4,39 +4,45 @@
 
     h3 Your order
 
-    ul.products(v-for='product in products')
+    ul.products(v-for='(product, index) in this.$store.getters.getCartProducts')
       li
         .img-wrapper(v-if='product.thumbnail')
           img(:src='product.thumbnail' :alt='product.name')
         .info
           p.name {{ product.name }}
           .qty
-            button(type='button' class='minus')
+            button(type='button' class='minus' @click='decrementQty(index)')
             input(type='text' :value='product.qty')
-            button(type='button' class='plus')
+            button(type='button' class='plus' @click='incrementQty(index)')
           p.price Price
-            span {{ product.price }}
+            span {{ currencySymbol + (product.price * product.qty).toFixed(2) }}
 
     h3 Order summary
     p Subtotal
-      span $300.00
+      span {{ this.$store.getters.getSubTotal }}
     p Shipping
-      span $20.00
+      span {{ this.$store.getters.getShippingCost }}
     p.total Total
-      span $320.00
+      span {{ this.$store.getters.getTotalCost }}
 
 
 
 </template>
 
 <script>
-  import sampleProductsList from '../assets/sample-data'
-
   export default {
     name: 'order-summary',
     data () {
       return {
-        products: sampleProductsList.products
+        currencySymbol: this.$store.getters.getCurrencySymbol
+      }
+    },
+    methods: {
+      incrementQty (index) {
+        this.$store.commit('incrementQty', index)
+      },
+      decrementQty (index) {
+        this.$store.commit('decrementQty', index)
       }
     }
   }

@@ -14,6 +14,7 @@
   import MainHeader from './components/Header.vue'
   import DeliveryForm from './components/DeliveryForm.vue'
   import OrderSummary from './components/OrderSummary.vue'
+  import sampleProductsList from './assets/sample-data'
 
   export default {
     name: 'app',
@@ -26,6 +27,9 @@
       MainHeader,
       DeliveryForm,
       OrderSummary
+    },
+    mounted () {
+      this.$store.commit('addProducts', sampleProductsList.products)
     }
   }
 </script>

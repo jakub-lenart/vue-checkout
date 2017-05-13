@@ -4,7 +4,7 @@
     .container
       h1.title {{ msg }}
       .minicart
-        span 2
+        span {{ this.$store.getters.countCartProducts }}
       nav
         ul
           li
