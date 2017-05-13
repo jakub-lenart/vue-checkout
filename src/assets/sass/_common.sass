@@ -5,6 +5,8 @@ html
 body
   font-family: $font-family-default
   min-height: 100%
+  color: $font-color-main
+  background-color: $body-bg-color
 
 .fade-enter-active, .fade-leave-active
   transition: opacity .3s
@@ -13,10 +15,14 @@ body
   opacity: 0
 
 .container
+  max-width: $content-width
+  margin: 0 auto
   padding: 0 30px
+  box-sizing: border-box
+  position: relative
 
 a
   text-decoration: none
   transition: all ease 0.2s
   &:hover
-    text-decoration: none
+    opacity: 0.7

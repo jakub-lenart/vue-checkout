@@ -1,11 +1,17 @@
 <template lang="pug">
   #app
+    main-header
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import MainHeader from './components/Header.vue'
+
+  export default {
+    name: 'app',
+    components: {
+      MainHeader
+    }
+  }
 </script>
 
 <style lang="sass" rel="stylesheet/sass">
