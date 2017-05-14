@@ -3,10 +3,11 @@
     main-header
     .container.clearfix
       h2.page-title {{ title }}
-      .col.col-left
-        delivery-form
       .col.col-right
         order-summary
+      .col.col-left
+        delivery-form
+
 
 </template>
 
